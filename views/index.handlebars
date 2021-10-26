@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style2.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- This content will take up 3/12 (or 1/4) of the container -->
+                <div class="heading">
+                    <h2>Registration Numbers App</h2>
+                </div>
+                
+                <form action="/reg" method="POST">
+                    <div class="textField" name="textField">
+
+                        Reg No <input type="text" name="field">
+                    </div>
+                    <div class="but1">
+                        <button type="submit">Add</button>
+                    </div>
+                    <div class="but2">
+                        <button type="submit">Show All</button>
+                    </div>
+
+
+                </form>
+
+
+                <form action="/reset" method="POST">
+                    <div class="but3">
+                        <button class="but3" type="submit" name="resetBTN" value="resetBTN">Reset</button>
+                    </div>
+
+                </form>
+            </div>
+            <!-- This content will take up 6/12 (or 1/2) of the container -->
+            <div class="filter">
+                <input type="radio" class="Town" id="townFil" name="Town" value="CapeTown">
+                <label for="lang">CapeTown</label>
+
+                <input type="radio" class="Town" id="townFil" name="Town" value="Paarl">
+                <label for="lang">Paarl</label>
+
+                <input type="radio" class="Town" id="townFil" name="Town" value="Bellville">
+                <label for="lang">Bellville</label>
+
+            </div>
+            <div class="space">
+                {{#each model}}
+                <li>{{this.regno}}</li>
+                {{/each}}
+            </div>
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
