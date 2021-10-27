@@ -1,11 +1,11 @@
-DROP TABLE IF EXISTS towns CASCADE;
+-- DROP TABLE IF EXISTS towns CASCADE;
 
 create table towns(
     id serial not null primary key,
     townName varChar(255) not null,
     loc varChar(255) not null
 );
-DROP TABLE IF EXISTS registrations CASCADE;
+-- DROP TABLE IF EXISTS registrations CASCADE;
 create table registrations(
     id serial not null primary key,
     regNo varChar(255) not null,
