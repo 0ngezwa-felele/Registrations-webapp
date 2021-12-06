@@ -6,21 +6,22 @@
     text-align: center;
     justify-content: center;
     align-content: center;
-    border: solid black;
+    /* border: solid black; */
     border-radius: 25%;
-    background-image: linear-gradient(rgba(235, 233, 245, 0.8),rgba(238, 223, 227, 0.8)),url(./—Pngtree—cool\ technology\ sense\ information\ technology_1046698.jpg);
+    background-image: linear-gradient(rgb(235, 53, 29),rgba(221, 209, 217, 0.8)),url(./—Pngtree—cool\ technology\ sense\ information\ technology_1046698.jpg);
 }
 .space li{
-    background-color:whitesmoke;
-    border: 1px solid wheat;
-    color: black;
-    outline: none;
-    transition: .6s ease;
+    background-color:yellow;
+    border: 1px solid black;
     border-radius: 25px;
     margin: auto;
     width: 10%;
-    
-    
+    margin: 20px;
+    display: inline-flex;  
+}
+.success{
+    color-adjust: red;
+    font-size: small;
 }
 .buts{
     display: flex;
@@ -80,6 +81,25 @@
     
 }
 .but3 button:hover{
+    cursor: pointer;
+    background-color: rgb(238, 232, 221);
+    color: black;
+    box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+    font-weight: bold;
+}
+.but4 button{
+    width: 150px;
+    margin: auto;
+    height: 50px;
+    background-color:whitesmoke;
+    border: 1px solid wheat;
+    color: black;
+    outline: none;
+    transition: .6s ease;
+    border-radius: 25px;
+    
+}
+.but4 button:hover{
     cursor: pointer;
     background-color: rgb(238, 232, 221);
     color: black;

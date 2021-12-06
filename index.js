@@ -46,17 +46,50 @@ app.get('/', function (req, res) {
     res.render('index')
 })
 app.post('/reg', async function (req, res, next) {
+    var regex= /^((CA|CJ|CY)-\d{3})$/i;
     try {
         let input = req.body.field
-        console.log(await regInstance.getReg())
-        if(input != ''){
-            await regInstance.insert(input)
+        if (input === ""){
+            req.flash('info','Please input your registration number')
+            // (input = "")
         }
+       else if(!regex.test(input)){
+            req.flash('info','Please input a correct registration number.....')
+            // (input = "")
+        }
+      else  if(input != '')
+            await regInstance.insert(input)
+            // req.flash('info','reg number added')
+        
         res.render('index',{model: await regInstance.getReg()})
     } catch (error) {
         next(error)
     }
 })
+app.get('/show', async function (req, res){
+    try {
+        res.render('index', { added: await regInstance.getReg()})
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+app.get('/reg_numbers', async function(req, res){
+    try {
+        reg.render('index',{filtered: await regInstance.filter()})
+    } catch (error) {
+        console.log(error)
+    }
+})
+app.post('/reg_numbers', async function (req, res) {
+    let button = req.body.Town 
+        let allRegs = await regInstance.filter(button)
+      
+        console.log(allRegs);
+        res.render('index', { model: allRegs })
+    });
+    
+
 app.post('/reset', async function(req, res){
         await regInstance.reset();
             res.redirect('/')

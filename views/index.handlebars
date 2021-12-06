@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./style2.css">
+    <script src="/timeout.js"></script>
 </head>
 
 <body>
@@ -14,21 +15,31 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                 <div>
+                    {{#if messages.info}}
+                    <div class="success">
+                        <p> {{messages.info}}</p>
+                    </div>
+                    {{/if}}
+                </div>
                 <!-- This content will take up 3/12 (or 1/4) of the container -->
                 <div class="heading">
-                    <h2>Registration Numbers App</h2>
+                    <h3>Registration Numbers App</h3>
                 </div>
-                
+
                 <form action="/reg" method="POST">
                     <div class="textField" name="textField">
 
                         Reg No <input type="text" name="field">
                     </div>
-                    <div class="but1">
-                        <button type="submit">Add</button>
-                    </div>
-                    <div class="but2">
-                        <button type="submit">Show All</button>
+                    <div class="buts">
+                        <div class="but1">
+                            <button type="submit">Add</button>
+                        </div>
+                        <div class="but2">
+                            <button type="submit">Show All</button>
+                        </div>
+
                     </div>
 
 
@@ -41,23 +52,34 @@
                     </div>
 
                 </form>
+
+
             </div>
             <!-- This content will take up 6/12 (or 1/2) of the container -->
-            <div class="filter">
-                <input type="radio" class="Town" id="townFil" name="Town" value="CapeTown">
-                <label for="lang">CapeTown</label>
+            <form action="/reg_numbers" method="POST">
+                <div class="filter">
+                    <input type="radio" class="Town" id="townFil" name="Town" value="CA">
+                    <label for="lang">CapeTown</label>
 
-                <input type="radio" class="Town" id="townFil" name="Town" value="Paarl">
-                <label for="lang">Paarl</label>
+                    <input type="radio" class="Town" id="townFil" name="Town" value="CJ">
+                    <label for="lang">Paarl</label>
 
-                <input type="radio" class="Town" id="townFil" name="Town" value="Bellville">
-                <label for="lang">Bellville</label>
+                    <input type="radio" class="Town" id="townFil" name="Town" value="CY">
+                    <label for="lang">Bellville</label>
 
-            </div>
+                </div>
+                <div class="but4">
+                    <button class="but4" type="submit" name="filterBTN" value="filterBTN">Filter</button>
+                </div>
+
+            </form>
             <div class="space">
                 {{#each model}}
                 <li>{{this.regno}}</li>
                 {{/each}}
+            </div>
+            <div class="fieldSpace">
+                {{added}}
             </div>
 
         </div>
