@@ -19,5 +19,8 @@
     "express-session": "^1.17.2",
     "nodemon": "^2.0.13",
     "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "mocha": "^9.1.3"
   }
 }
