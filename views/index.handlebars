@@ -15,9 +15,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                 <div>
+                <div>
                     {{#if messages.info}}
-                    <div class="success">
+                    <div id="success" class="success">
                         <p> {{messages.info}}</p>
                     </div>
                     {{/if}}
@@ -45,18 +45,24 @@
 
                 </form>
 
+                <div class="buts">
+                    <form action="/reset" method="POST">
+                        <div class="but3">
+                            <button class="but3" type="submit" name="resetBTN" value="resetBTN">Reset</button>
+                        </div>
 
-                <form action="/reset" method="POST">
-                    <div class="but3">
-                        <button class="but3" type="submit" name="resetBTN" value="resetBTN">Reset</button>
-                    </div>
+                    </form>
+                </div>
 
-                </form>
 
 
             </div>
             <!-- This content will take up 6/12 (or 1/2) of the container -->
             <form action="/reg_numbers" method="POST">
+            
+                <div class="but4">
+                    <button class="but4" type="submit" name="filterBTN" value="filterBTN">Filter</button>
+                </div>
                 <div class="filter">
                     <input type="radio" class="Town" id="townFil" name="Town" value="CA">
                     <label for="lang">CapeTown</label>
@@ -68,9 +74,7 @@
                     <label for="lang">Bellville</label>
 
                 </div>
-                <div class="but4">
-                    <button class="but4" type="submit" name="filterBTN" value="filterBTN">Filter</button>
-                </div>
+
 
             </form>
             <div class="space">

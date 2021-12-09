@@ -1,20 +1,8 @@
-module.exports = function regMain(pool) {
+module.exports = function RegMain(pool) {
 
-
-    // adding
-    async function addReg(numbers) {
-        let string = numbers.substring(1)
-        let allNumb = await pool.query('SELECT id FROM towns WHERE townID = $1'[string]);
-        if (allNumb.rows == '') {
-            await getReg(numbers)
-        }
-        return allNumb.rows
-
-    };
     // allowing user to instert reg numbers
 
     async function insert(reg) {
-        console.log(reg)
         let twoChar = reg.substring(0, 2);
         let regTown = await pool.query("Select * from towns where loc = $1", [twoChar])
         let regNumba = await pool.query(`Select * from registrations where regNo = '${reg}'`)
@@ -30,7 +18,7 @@ module.exports = function regMain(pool) {
 
     // getting values 
     async function getReg() {
-        let regNum = await pool.query('SELECT * FROM registrations');
+        let regNum = await pool.query('SELECT regNo, townID FROM registrations');
         return regNum.rows
 
     }
@@ -51,18 +39,15 @@ module.exports = function regMain(pool) {
     }
 
     async function reset() {
-        await pool.query('DELETE FROM registrations');
+       let allDel = await pool.query('DELETE FROM registrations');
+       return allDel.rows;
     }
 
     return {
-        regMain,
-        addReg,
         insert,
-        getReg,
         getReg,
         reset,
         filter,
-        foreignKey
     }
 
 }

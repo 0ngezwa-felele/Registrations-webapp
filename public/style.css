@@ -8,7 +8,10 @@
     align-content: center;
     /* border: solid black; */
     border-radius: 25%;
-    background-image: linear-gradient(rgb(235, 53, 29),rgba(221, 209, 217, 0.8)),url(./—Pngtree—cool\ technology\ sense\ information\ technology_1046698.jpg);
+    background-image: linear-gradient(rgba(253, 4, 4, 0.151),rgb(169, 226, 226)),url(./—Pngtree—cool\ technology\ sense\ information\ technology_1046698.jpg);
+}
+.success{
+    color: green;
 }
 .space li{
     background-color:yellow;
